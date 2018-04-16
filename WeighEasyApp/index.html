@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SwathiJaruguExample-SMART-App</title>
+    <title>SwathiJaruguExample-WeighEasy-App</title>    
+    <script src="./lib/js/fhir-client-v0.1.12.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </head>
   <body>
-    <h1>Hello World</span></h1>
-    <p>Testing Github Pages</p>
+    <h1>Patient Demographics</span></h1>
+    <table>
+        <tr>
+          <th>Name:</th>
+          <td id='name'></td>
+        </tr>
+        <tr>
+          <th>Gender:</th>
+          <td id='gender'></td>
+        </tr>
+    </table>
+    <script type="text/javascript">      
+        function displayPatient(pt){
+            pt.name.forEach(function(ptName){
+                if((typeof ptName !== 'undefined') && (ptName.use == 'official')){
+                    document.getElementById('name').innerHTML = ptName.given.join(" ") + " " + ptName.family.join(" ");
+                }
+            });
+            document.getElementById('gender').innerHTML = pt.gender;
+        }
+        FHIR.oauth2.ready(function(smart){
+            smart.patient.read().then(function(pt) {
+                displayPatient (pt);
+            });
+        });
+    </script>
   </body>
 </html>
