@@ -19,16 +19,16 @@
     </table>
     <script type="text/javascript">      
         function displayPatient(pt){
-            if(typeof ptName !== 'undefined'){
+            //if(typeof ptName !== 'undefined'){
                 pt.name.forEach(function(ptName){
                     if(ptName.use == 'official'){
                         document.getElementById('name').innerHTML = ptName.given.join(" ") + " " + ptName.family.join(" ");
                     }
                 });
             }
-            else {
-                document.getElementById('name').innerHTML = "anonymous";
-            }  
+           // else {
+           //     document.getElementById('name').innerHTML = "anonymous";
+           // }  
             document.getElementById('gender').innerHTML = pt.gender;
         }
         FHIR.oauth2.ready(function(smart){
