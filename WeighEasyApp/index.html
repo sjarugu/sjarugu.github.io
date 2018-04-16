@@ -42,15 +42,15 @@
         }
 
         function getObservationResult(ob){
-            if (typeof ob !== 'undefined' &&
-                typeof ob.valueQuantity !== 'undefined' &&
-                typeof ob.valueQuantity.value !== 'undefined' &&
-                typeof ob.valueQuantity.unit !== 'undefined') {
+            // if (typeof ob !== 'undefined' &&
+            //     typeof ob.valueQuantity !== 'undefined' &&
+            //     typeof ob.valueQuantity.value !== 'undefined' &&
+            //     typeof ob.valueQuantity.unit !== 'undefined') {
                 return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
-            } 
-            else {
-                return undefined;
-            }
+            // } 
+            // else {
+            //     return undefined;
+            // }
         }
 
         FHIR.oauth2.ready(function(smart){
