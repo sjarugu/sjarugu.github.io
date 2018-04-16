@@ -19,16 +19,20 @@
     </table>
     <script type="text/javascript">      
         function displayPatient(pt){
-            //if(typeof ptName !== 'undefined'){
-                pt.name.forEach(function(ptName){
+            var fullname = '';
+            pt.name.forEach(function(ptName){
+                if(typeof ptName !== 'undefined'){
                     if(ptName.use == 'official'){
-                        document.getElementById('name').innerHTML = ptName.given.join(" ") + " " + ptName.family.join(" ");
+                        fullname = ptName.given.join(" ") + " " + ptName.family.join(" ");
                     }
-                });
-            //}
-           // else {
-           //     document.getElementById('name').innerHTML = "anonymous";
-           // }  
+                }
+            });
+            if(fullname != ''){                    
+                document.getElementById('name').innerHTML = fullname;
+            }
+            else {
+                document.getElementById('name').innerHTML = "anonymous";
+            } 
             document.getElementById('gender').innerHTML = pt.gender;
         }
         FHIR.oauth2.ready(function(smart){
