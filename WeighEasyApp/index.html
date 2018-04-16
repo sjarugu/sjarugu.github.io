@@ -57,15 +57,8 @@
             smart.patient.read().then(function(pt) {
                 displayPatient (pt);
             });
-            smart.patient.api.fetchAll({
-                type: 'Observation',
-                query: {
-                    code: {
-                        $exact: 'http://loinc.org|29463-7'
-                    }
-                }
-            }).then(function(obv){
-                var bodyWeight = smart.byCodes('29463-7');
+            smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
+                var bodyWeight = smart.byCodes(obv, '29463-7');
                 document.getElementById('curweight').innerHTML = getObservationResult(bodyWeight[0]);
             });
         });
