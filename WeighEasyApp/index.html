@@ -58,7 +58,8 @@
                 displayPatient (pt);
             });
             smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
-                var bodyWeight = smart.byCodes(obv, '29463-7');
+                var byCodes = smart.byCodes(obv, 'code');
+                var bodyWeight = byCodes('29463-7');
                 document.getElementById('curweight').innerHTML = getObservationResult(bodyWeight[0]);
             });
         });
