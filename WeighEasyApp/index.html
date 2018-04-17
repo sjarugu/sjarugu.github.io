@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SwathiJaruguExample-WeighEasy-App</title>    
+    <title>WeighEasy-App</title>    
     <script src="./lib/js/fhir-client-v0.1.12.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </head>
@@ -47,6 +47,7 @@
             //     typeof ob.valueQuantity.value !== 'undefined' &&
             //     typeof ob.valueQuantity.unit !== 'undefined') {
                 return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
+                console.log(typeof ob)
             // } 
             // else {
             //     return undefined;
