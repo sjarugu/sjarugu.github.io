@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" hidden>
+  <head>
+    <title>WeightEasy-App</title>
+  </head>
+  <body>
+    <!-- FHIR Client JS Library -->
+    <script src='./lib/js/fhir.js/dist/jqFhir.js'></script>
+    <script>
+      FHIR.oauth2.authorize({
+        'client_id': 'ec3ff277-c19a-4965-a753-bb534000b177',
+        'scope':  'patient/Patient.read patient/Observation.read launch/patient online_access openid profile'
+      });
+    </script>
+  </body>
+</html>
