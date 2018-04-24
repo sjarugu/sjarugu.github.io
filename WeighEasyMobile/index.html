@@ -43,12 +43,12 @@
                 }
             });
             if(fullname != ''){                    
-                document.getElementById('name').innerHTML = fullname;
+               $("#name").html = fullname;
             }
             else {
-                document.getElementById('name').innerHTML = "anonymous";
+                $("#name").html = "anonymous";
             } 
-            document.getElementById('gender').innerHTML = pt.gender;
+            $("#gender").htmml = pt.gender;
         }
 
         function getObservationResult(ob){
@@ -70,7 +70,7 @@
             smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
                 var byCodes = smart.byCodes(obv, 'code');
                 var bodyWeight = byCodes('29463-7');
-                document.getElementById('curweight').innerHTML = getObservationResult(bodyWeight[0]);
+                $("#curweight").html = getObservationResult(bodyWeight[0]);
             });
         });
     </script>
