@@ -35,7 +35,7 @@
     <script type="text/javascript">  
         function displayPatient(pt){
             var fullname = '';
-            pt.name.forEach(function(ptName){
+            $.each(pt, function(ptName){
                 if($.type(ptName) !== 'undefined'){
                     if(ptName.use == 'official'){
                         fullname = ptName.given.join(" ") + " " + ptName.family.join(" ");
