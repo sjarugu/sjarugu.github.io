@@ -36,7 +36,7 @@
         function displayPatient(pt){
             var fullname = '';
             pt.name.forEach(function(ptName){
-                if(typeof ptName !== 'undefined'){
+                if($.type(ptName) !== 'undefined'){
                     if(ptName.use == 'official'){
                         fullname = ptName.given.join(" ") + " " + ptName.family.join(" ");
                     }
@@ -52,10 +52,10 @@
         }
 
         function getObservationResult(ob){
-            if (typeof ob != 'undefined' &&
-                typeof ob.valueQuantity != 'undefined' &&
-                typeof ob.valueQuantity.value != 'undefined' &&
-                typeof ob.valueQuantity.unit != 'undefined') {
+            if ($.type(ob) != 'undefined' &&
+                $.type(ob.valueQuantity) != 'undefined' &&
+                $.type(ob.valueQuantity.value) != 'undefined' &&
+                $.type(ob.valueQuantity.unit) != 'undefined') {
                 return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
             } 
             else {
