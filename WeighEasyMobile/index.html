@@ -43,12 +43,12 @@
                 }
             });
             if(fullname != ''){                    
-               $("#name").text = fullname;
+                document.getElementById('name').innerHTML = fullname;
             }
             else {
-                $("#name").text = "anonymous";
+                document.getElementById('name').innerHTML = "anonymous";
             } 
-            $("#name").text = pt.gender;
+            document.getElementById('gender').innerHTML = pt.gender;
         }
 
         function getObservationResult(ob){
