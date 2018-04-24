@@ -35,12 +35,14 @@
     <script type="text/javascript">  
         function displayPatient(pt){
             var fullname = '';
-            $(pt.name).each(function(ptName){
-                if($.type(ptName) !== 'undefined'){
-                    console.log("Entering patient name section..")
-                    console.log(pt)
-                    if(ptName.use == 'official'){
-                        fullname = ptName.given.join(" ") + " " + ptName.family.join(" ");
+            $(pt.name).each(function(patient){
+                if($.type(patient) !== 'undefined'){
+                    if($.type(patient.name) !== 'undefined'){
+                        console.log("Entering patient name section..")
+                        console.log(pt)
+                        if(patient.name.use == 'official'){
+                            fullname = patient.name.given.join(" ") + " " + patient.name.family.join(" ");
+                        }
                     }
                 }
             });
