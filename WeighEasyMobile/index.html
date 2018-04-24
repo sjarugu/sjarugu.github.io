@@ -38,7 +38,7 @@
             $(pt).each(function(patient){
                 if($.type(patient) !== 'undefined'){
                         console.log("Entering patient name section..")
-                        console.log(pt)
+                        console.log(patient)
                     if($.type(patient.name) !== 'undefined'){
                         if(patient.name.use == 'official'){
                             fullname = patient.name.given.join(" ") + " " + patient.name.family.join(" ");
