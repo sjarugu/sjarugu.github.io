@@ -35,7 +35,7 @@
     <script type="text/javascript">  
         function displayPatient(pt){
             var fullname = '';
-            $(pt).each(function(ptName){
+            $(pt.name).each(function(ptName){
                 if($.type(ptName) !== 'undefined'){
                     console.log("Entering patient name section..")
                     console.log(pt)
