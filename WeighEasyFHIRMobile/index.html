@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WeighEasy-Mobile-App</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" /> -->
+    <!-- FHIR Client JS Library -->
+    <script src='./lib/js/jqFhir.js'></script>
+  </head>
+  <body>
+        <ons-page id="pat_demo"></ons-page>
+            <ons-toolbar>
+                <div class="center"></div>
+                    <div class="right">
+                        <ons-toolbar-button>
+                            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+                        </ons-toolbar-button>
+                    </div>
+            </ons-toolbar>
+            <!-- <div data-role="header" data-position="fixed">
+                <h1>Patient Demographics</span></h1>
+            </div> -->
+            <div data-role="main" class="ui-content">
+                <table>
+                    <tr>
+                    <th>Name:</th>
+                    <td id='name'></td>
+                    </tr>
+                    <tr>
+                    <th>Gender:</th>
+                    <td id='gender'></td>
+                    </tr>
+                    <tr>
+                    <th>Weight:</th>
+                    <td id='curweight'></td>
+                    </tr>
+                </table>
+            </div>
+        </ons-page>
+        <script type="text/javascript">  
+            ons.getScriptPage().onInit = function() {
+                console.log('This is a lifecycle hook!', this);
+            };
+            $("#pat_demo").load(function() {
+                $("ons-toolbar .center").text("Patient Demographics");
+            });
+            function displayPatient(pt){
+                var fullname = '';
+                $(pt.name).each(function(name_idx, ptName){
+                    if($.type(ptName) !== 'undefined'){
+                        if(ptName.use == 'official'){
+                            fullname = ptName.given.join(" ") + " " + ptName.family.join(" ");
+                        }
+                    }
+                });
+                if(fullname != ''){                    
+                $("#name").text(fullname);
+                }
+                else {
+                    $("#name").text("anonymous");
+                } 
+                $("#gender").text(pt.gender);
+            }
+
+            function getObservationResult(ob){
+                if ($.type(ob) != 'undefined' &&
+                    $.type(ob.valueQuantity) != 'undefined' &&
+                    $.type(ob.valueQuantity.value) != 'undefined' &&
+                    $.type(ob.valueQuantity.unit) != 'undefined') {
+                    return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
+                } 
+                else {
+                    return undefined;
+                }
+            }
+
+            FHIR.oauth2.ready(function(smart){
+                smart.patient.read().then(function(pt) {
+                    displayPatient (pt);
+                });
+                smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
+                    var byCodes = smart.byCodes(obv, 'code');
+                    var bodyWeight = byCodes('29463-7');
+                    $("#curweight").text(getObservationResult(bodyWeight[0]));
+                });
+            });
+        </script>
+  </body>
+</html>
