@@ -22,7 +22,19 @@
                     </ons-toolbar-button>
                 </div>
             </ons-toolbar>
-            <div data-role="main" class="ui-content">
+            <ons-row>
+                <ons-col>Name:</ons-col>
+                <ons-col id='name'></ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col>Gender:</ons-col>
+                <ons-col id='gender'></ons-col>
+            </ons-row>
+            <ons-row>
+                <ons-col>Weight:</ons-col>
+                <ons-col id='curweight'></ons-col>
+            </ons-row>
+            <!-- <div data-role="main" class="ui-content">
                 <table>
                     <tr>
                         <th>Name:</th>
@@ -37,7 +49,7 @@
                         <td id='curweight'></td>
                     </tr>
                 </table>
-            </div>
+            </div> -->
         </ons-page>
             <script type="text/javascript">  
                 ons.ready(function() {
