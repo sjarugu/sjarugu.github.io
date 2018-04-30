@@ -23,9 +23,9 @@
                         </ons-toolbar-button>
                     </div>
             </ons-toolbar>
-            <!-- <div data-role="header" data-position="fixed">
+            <div data-role="header" data-position="fixed">
                 <h1>Patient Demographics</span></h1>
-            </div> -->
+            </div> 
             <div data-role="main" class="ui-content">
                 <table>
                     <tr>
@@ -47,9 +47,9 @@
             // ons.getScriptPage().onInit = function() {
             //     console.log('This is a lifecycle hook!', this);
             // };
-            $("#pat_demo").load(function() {
-                $("ons-toolbar .center").text("Patient Demographics");
-            });
+            // $("#pat_demo").load(function() {
+            //     $("ons-toolbar .center").text("Patient Demographics");
+            // });
             function displayPatient(pt){
                 var fullname = '';
                 $(pt.name).each(function(name_idx, ptName){
