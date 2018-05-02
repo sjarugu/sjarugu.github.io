@@ -87,6 +87,8 @@
     
                 FHIR.oauth2.ready(function(smart){
                     console.log(smart);
+                  console.log("Testing");
+                  console.log(FHIR);
                     smart.patient.read().then(function(pt) {
                         displayPatient (pt);
                     });
