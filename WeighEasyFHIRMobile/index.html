@@ -67,6 +67,7 @@
                 else {
                     return undefined;
                 }
+<<<<<<< HEAD
             }
 
             FHIR.oauth2.ready(function(smart){
@@ -78,6 +79,21 @@
                     var byCodes = smart.byCodes(obv, 'code');
                     var bodyWeight = byCodes('29463-7');
                     $("#curweight").text(getObservationResult(bodyWeight[0]));
+=======
+    
+                FHIR.oauth2.ready(function(smart){
+                    console.log(smart);
+                  console.log("Testing");
+                  console.log(FHIR);
+                    smart.patient.read().then(function(pt) {
+                        displayPatient (pt);
+                    });
+                    smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
+                        var byCodes = smart.byCodes(obv, 'code');
+                        var bodyWeight = byCodes('29463-7');
+                        $("#curweight").text(getObservationResult(bodyWeight[0]));
+                    });
+>>>>>>> f49f50cee1eb44e30d76c8789342f57c1b310eef
                 });
             });
         </script>
