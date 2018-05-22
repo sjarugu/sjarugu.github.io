@@ -22,7 +22,27 @@
                     </ons-toolbar-button>
                 </div>
             </ons-toolbar>
-            <ons-row>
+            <ons-list>
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>Name:</ons-col>
+                        <ons-col id='name'></ons-col>
+                    </ons-row>
+                </ons-list-item>
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>Gender:</ons-col>
+                        <ons-col id='gender'></ons-col>
+                    </ons-row>
+                </ons-list-item>
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>Weight:</ons-col>
+                        <ons-col id='curweight'></ons-col>
+                    </ons-row>
+                </ons-list-item>
+            </ons-list>
+            <!-- <ons-row>
                 <ons-col>Name:</ons-col>
                 <ons-col id='name'></ons-col>
             </ons-row>
@@ -33,7 +53,7 @@
             <ons-row>
                 <ons-col>Weight:</ons-col>
                 <ons-col id='curweight'></ons-col>
-            </ons-row>
+            </ons-row> -->
         </ons-page>
         <script type="text/javascript">  
             ons.ready(function() {
@@ -68,20 +88,17 @@
                     return undefined;
                 }
             }
-
-            FHIR.oauth2.ready(function(smart){
-                // console.log(smart);
-                // console.log("Testing");
-                // console.log(FHIR);
-                smart.patient.read().then(function(pt) {
-                    displayPatient (pt);
+    
+                FHIR.oauth2.ready(function(smart){
+                    smart.patient.read().then(function(pt) {
+                        displayPatient (pt);
+                    });
+                    smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
+                        var byCodes = smart.byCodes(obv, 'code');
+                        var bodyWeight = byCodes('29463-7');
+                        $("#curweight").text(getObservationResult(bodyWeight[0]));
+                    });
                 });
-                smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
-                    var byCodes = smart.byCodes(obv, 'code');
-                    var bodyWeight = byCodes('29463-7');
-                    $("#curweight").text(getObservationResult(bodyWeight[0]));
-                });
-            });
         </script>
   </body>
 </html>
