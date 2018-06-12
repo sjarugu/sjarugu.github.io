@@ -81,12 +81,12 @@
                     $("#name").text("anonymous");
                 } 
                 $("#gender").text(pt.gender);
-                $(pt.careProvider).each(cp_idx, cp){
-                    if($.type(cp.reference) !== 'undefined'){
-                        $("#provider").text(cp.display);
-                        $("#providerType").text(cp.reference);
-                    }
-                }
+                // $(pt.careProvider).each(cp_idx, cp){
+                    // if($.type(cp.reference) !== 'undefined'){
+                        $("#provider").text(pt.careProvider.display);
+                        $("#providerType").text(pt.careProvider.reference);
+                    // }
+                // }
             }
 
             function getObservationResult(ob){
