@@ -78,6 +78,7 @@
             }
 
             function getObservationResult(ob){
+                console.log(ob);
                 if ($.type(ob) != 'undefined' &&
                     $.type(ob.valueQuantity) != 'undefined' &&
                     $.type(ob.valueQuantity.value) != 'undefined' &&
@@ -94,7 +95,6 @@
                         displayPatient (pt);
                     });
                     smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
-                        console.log(obv);
                         var byCodes = smart.byCodes(obv, 'code');
                         var bodyWeight = byCodes('29463-7');
                         $("#curweight").text(getObservationResult(bodyWeight[0]));
