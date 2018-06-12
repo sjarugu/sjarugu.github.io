@@ -43,7 +43,7 @@
                 </ons-list-item>
                 <ons-list-item>
                     <ons-row>
-                        <ons-col id="providerType"></ons-col>
+                        <ons-col>Practitioner</ons-col>
                         <ons-col id='provider'></ons-col>
                     </ons-row>
                 </ons-list-item>
@@ -81,10 +81,10 @@
                     $("#name").text("anonymous");
                 } 
                 $("#gender").text(pt.gender);
+                console.log(pt.careProvider);
                 $(pt.careProvider).each(function(cp_idx, cp){
                     if($.type(cp.reference) !== 'undefined'){
                         $("#provider").text(cp.display);
-                        $("#providerType").text(cp.reference);
                     }
                 });
             }
