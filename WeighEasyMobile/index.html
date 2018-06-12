@@ -94,11 +94,11 @@
                         displayPatient (pt);
                     });
                     smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
+                        console.log("Entering Observation section");
                         var byCodes = smart.byCodes(obv, 'code');
                         var bodyWeight = byCodes('29463-7');
                         $("#curweight").text(getObservationResult(bodyWeight[0]));
                     });
-                    console.log("Exiting Observation section");
                     smart.patient.api.fetchAll({type: 'MedicationAdministration'}).then(function(med){
                         console.log("Entering med section");
                         console.log(med);
