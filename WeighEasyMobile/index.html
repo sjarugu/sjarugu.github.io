@@ -78,7 +78,6 @@
             }
 
             function getObservationResult(ob){
-                console.log(ob);
                 if ($.type(ob) != 'undefined' &&
                     $.type(ob.valueQuantity) != 'undefined' &&
                     $.type(ob.valueQuantity.value) != 'undefined' &&
@@ -101,7 +100,7 @@
                     });
                     smart.patient.api.fetchAll({type: 'MedicationAdministration'}).then(function(med){
                         console.log("Entering med section");
-                        console.log(med);
+                        console.log(med[1]);
                     });
                 });
         </script>
