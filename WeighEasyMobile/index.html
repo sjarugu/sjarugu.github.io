@@ -94,7 +94,7 @@
                         displayPatient (pt);
                     });
                     smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
-                        console.log("Entering Observation section");
+                        console.log(obv);
                         var byCodes = smart.byCodes(obv, 'code');
                         var bodyWeight = byCodes('29463-7');
                         $("#curweight").text(getObservationResult(bodyWeight[0]));
