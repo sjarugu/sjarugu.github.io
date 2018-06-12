@@ -83,8 +83,8 @@
                 $("#gender").text(pt.gender);
                 // $(pt.careProvider).each(cp_idx, cp){
                     // if($.type(cp.reference) !== 'undefined'){
-                        $("#provider").text(pt.careProvider.display);
-                        $("#providerType").text(pt.careProvider.reference);
+                        $("#provider").text(pt.careProvider["0"].display);
+                        $("#providerType").text(pt.careProvider["0"].reference);
                     // }
                 // }
             }
