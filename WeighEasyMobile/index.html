@@ -98,6 +98,9 @@
                         var bodyWeight = byCodes('29463-7');
                         $("#curweight").text(getObservationResult(bodyWeight[0]));
                     });
+                    smart.patient.api.fetchAll({type: 'MedicationAdministration'}).then(function(med){
+                        console.log(med);
+                    });
                 });
         </script>
   </body>
