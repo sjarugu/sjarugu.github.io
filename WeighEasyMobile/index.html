@@ -41,6 +41,12 @@
                         <ons-col id='curweight'></ons-col>
                     </ons-row>
                 </ons-list-item>
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>CareProvider:</ons-col>
+                        <ons-col id='provider'></ons-col>
+                    </ons-row>
+                </ons-list-item>
             </ons-list>
             <!-- <ons-row>
                 <ons-col>Name:</ons-col>
@@ -75,6 +81,7 @@
                     $("#name").text("anonymous");
                 } 
                 $("#gender").text(pt.gender);
+                console.log(pt);
             }
 
             function getObservationResult(ob){
@@ -97,10 +104,6 @@
                         var byCodes = smart.byCodes(obv, 'code');
                         var bodyWeight = byCodes('29463-7');
                         $("#curweight").text(getObservationResult(bodyWeight[0]));
-                    });
-                    smart.patient.api.fetchAll({type: 'MedicationAdministration'}).then(function(med){
-                        console.log("Entering med section");
-                        console.log(med[1]);
                     });
                 });
         </script>
