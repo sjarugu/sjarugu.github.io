@@ -110,10 +110,10 @@
             function getBPResult(ob){
                 if ($.type(ob) != 'undefined' &&
                     $.type(ob.component) != 'undefined' &&
-                    $.type(ob.valueQuantity.value) != 'undefined' &&
-                    $.type(ob.valueQuantity.unit) != 'undefined') {
+                    $.type(ob.component.valueQuantity.value) != 'undefined' &&
+                    $.type(ob.component.valueQuantity.unit) != 'undefined') {
                     console.log("entering BP section");
-                    return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
+                    return ob.component.valueQuantity.value + ' ' + ob.component.valueQuantity.unit;
                 } 
                 else {
                     return undefined;
