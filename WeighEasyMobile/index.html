@@ -40,6 +40,12 @@
                         <ons-col>Weight:</ons-col>
                         <ons-col id='curweight'></ons-col>
                     </ons-row>
+                </ons-list-item>              
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>Blood Pressure</ons-col>
+                        <ons-col id='bp'></ons-col>
+                    </ons-row>
                 </ons-list-item>
                 <ons-list-item>
                     <ons-row>
@@ -113,7 +119,7 @@
                     return undefined;
                 }
             }
-    
+          
                 FHIR.oauth2.ready(function(smart){
                     smart.patient.read().then(function(pt) {
                         displayPatient (pt);
@@ -121,9 +127,14 @@
                     smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
                         var byCodes = smart.byCodes(obv, 'code');
                         var bodyWeight = byCodes('29463-7');
+<<<<<<< HEAD
                         $("#curweight").text(getObservationResult(bodyWeight[0]))
                         var bloodPressure = byCodes('55284-4');;
                         $("#bp").text(getBPResult(bloodPressure[0]));
+=======
+                        $("#curweight").text(getObservationResult(bodyWeight[0]));
+                        var bloodPressure = byCodes('55284-4');
+>>>>>>> 1d0974357ea59e26e0326b976dc2560799de0211
                     });
                 });
         </script>
