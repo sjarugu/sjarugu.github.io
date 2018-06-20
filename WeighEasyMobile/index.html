@@ -107,19 +107,6 @@
                 }
             }
           
-/*
-            function getBPResult(ob){
-                if ($.type(ob) != 'undefined' &&
-                    $.type(ob.valueQuantity) != 'undefined' &&
-                    $.type(ob.valueQuantity.value) != 'undefined' &&
-                    $.type(ob.valueQuantity.unit) != 'undefined') {
-                    return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
-                } 
-                else {
-                    return undefined;
-                }
-            }
-    */
                 FHIR.oauth2.ready(function(smart){
                     smart.patient.read().then(function(pt) {
                         displayPatient (pt);
@@ -129,7 +116,6 @@
                         var bodyWeight = byCodes('29463-7');
                         $("#curweight").text(getObservationResult(bodyWeight[0]));
                         var bloodPressure = byCodes('55284-4');
-                       /* $("#bp").text(getBPResult(bodyWeight[0]));*/
                       console.log(bloodPressure[0]);
                     });
                 });
