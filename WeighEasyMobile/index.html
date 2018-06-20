@@ -111,6 +111,7 @@
                 if ($.type(ob) != 'undefined' &&
                     $.type(ob.component) != 'undefined' &&
                     $.type(ob.component.referenceRange) != 'undefined') {
+                        console.log("Entering this section");
                     return ob.component.referenceRange.low.value;
                 } 
                 else {
