@@ -108,14 +108,7 @@
             }            
 
             function getBPResult(ob){
-                if ($.type(ob) != 'undefined' &&
-                    $.type(ob.component) != 'undefined') {
-                        console.log("Entering this section");
-                    return ob.component.referenceRange.low.value;
-                } 
-                else {
-                    return undefined;
-                }
+                return ob.component.referenceRange.low.value;
             }
           
                 FHIR.oauth2.ready(function(smart){
