@@ -108,7 +108,7 @@
             }            
 
             function getBPResult(ob){
-                return ob.component[0].referenceRange.low.valueQuantity;
+                return ob.component[0].referenceRange[0].low[0].value;
             }
           
                 FHIR.oauth2.ready(function(smart){
