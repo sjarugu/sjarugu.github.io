@@ -127,14 +127,9 @@
                     smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
                         var byCodes = smart.byCodes(obv, 'code');
                         var bodyWeight = byCodes('29463-7');
-<<<<<<< HEAD
                         $("#curweight").text(getObservationResult(bodyWeight[0]))
                         var bloodPressure = byCodes('55284-4');;
                         $("#bp").text(getBPResult(bloodPressure[0]));
-=======
-                        $("#curweight").text(getObservationResult(bodyWeight[0]));
-                        var bloodPressure = byCodes('55284-4');
->>>>>>> 1d0974357ea59e26e0326b976dc2560799de0211
                     });
                 });
         </script>
