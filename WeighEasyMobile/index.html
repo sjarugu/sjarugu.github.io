@@ -108,9 +108,9 @@
             }            
 
             function getBPResult(ob){
-                ob.component.forEach(function(bpq, idx) {                    
-                    return bpq.valueQuantity;
-                });
+                //ob.component.forEach(function(bpq, idx) {                    
+                    return ob.component[0].valueQuantity;
+                //});
             }
           
                 FHIR.oauth2.ready(function(smart){
