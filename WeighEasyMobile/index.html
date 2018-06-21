@@ -43,8 +43,32 @@
                 </ons-list-item>              
                 <ons-list-item>
                     <ons-row>
-                        <ons-col>Blood Pressure</ons-col>
-                        <ons-col id='bp'></ons-col>
+                        <ons-col>MRN</ons-col>
+                        <ons-col id='mrn'></ons-col>
+                    </ons-row>
+                </ons-list-item>              
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>FIN</ons-col>
+                        <ons-col id='fin'></ons-col>
+                    </ons-row>
+                </ons-list-item>              
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>Location</ons-col>
+                        <ons-col id='location'></ons-col>
+                    </ons-row>
+                </ons-list-item>              
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>Visit Reason</ons-col>
+                        <ons-col id='vreason'></ons-col>
+                    </ons-row>
+                </ons-list-item>              
+                <ons-list-item>
+                    <ons-row>
+                        <ons-col>DOB</ons-col>
+                        <ons-col id='dob'></ons-col>
                     </ons-row>
                 </ons-list-item>
                 <ons-list-item>
@@ -107,11 +131,11 @@
                 }
             }            
 
-            function getBPResult(ob){
-                //ob.component.forEach(function(bpq, idx) {                    
-                    return ob.component[0].valueQuantity.value;
-                //});
-            }
+            // function getBPResult(ob){
+            //     //ob.component.forEach(function(bpq, idx) {                    
+            //         return ob.component[0].valueQuantity.value;
+            //     //});
+            // }
           
                 FHIR.oauth2.ready(function(smart){
                     smart.patient.read().then(function(pt) {
@@ -121,8 +145,8 @@
                         var byCodes = smart.byCodes(obv, 'code');
                         var bodyWeight = byCodes('29463-7');
                         $("#curweight").text(getObservationResult(bodyWeight[0]))
-                        var bloodPressure = byCodes('55284-4');;
-                        $("#bp").text(getBPResult(bloodPressure[0]));
+                        // var bloodPressure = byCodes('55284-4');;
+                        // $("#bp").text(getBPResult(bloodPressure[0]));
                     });
                 });
         </script>
