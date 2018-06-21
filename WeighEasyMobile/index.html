@@ -141,7 +141,11 @@
                 else {
                     return undefined;
                 }
-            }            
+            }    
+
+            // function getEncounterInfo(enc){
+
+            // }        
 
             // function getBPResult(ob){
             //     //ob.component.forEach(function(bpq, idx) {                    
@@ -159,6 +163,9 @@
                         $("#curweight").text(getObservationResult(bodyWeight[0]))
                         // var bloodPressure = byCodes('55284-4');;
                         // $("#bp").text(getBPResult(bloodPressure[0]));
+                    });
+                    smart.patient.api.fetchAll({type: 'Encounter'}).then(function(enc){
+                        console.log("Entering Encounter section");
                     });
                 });
         </script>
