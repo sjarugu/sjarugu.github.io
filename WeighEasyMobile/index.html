@@ -111,6 +111,7 @@
                     $("#name").text("anonymous");
                 } 
                 $("#gender").text(pt.gender);
+                $("#mrn").text(pt.identifier);
                 console.log(pt.careProvider);
                 $(pt.careProvider).each(function(cp_idx, cp){
                     if($.type(cp.reference) !== 'undefined'){
