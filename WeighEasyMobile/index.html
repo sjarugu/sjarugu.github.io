@@ -110,6 +110,10 @@
                     if($.type(identifier) !== 'undefined'){
                         if(identifier.system == 'urn:oid:1.1.1.1.1.1'){
                             console.log("entering mrn section");
+                            $("#mrn").text(identifier.value);
+                        }
+                        else{
+                            $("#mrn").text("Not Avaialble");
                         }
                     }
                 });
