@@ -146,13 +146,10 @@
             function setEncounterInfo(enc){  
                 $(enc).each(function(enc_idx, encounter){
                     if(encounter.id = "4367906"){
-                        console.log("entering encounter section");
-                        $(encounter.identifier).each(function(id_idx, id){
-                            console.log("entering id section");
-                        }
-                    )};
+                        $("#fin").text(encounter.identifier[0].value);
+                    }
                 });    
-                    console.log(enc);          
+                    //console.log(enc);          
             }        
 
             // function getBPResult(ob){
