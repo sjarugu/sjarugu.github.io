@@ -97,6 +97,7 @@
             });
             function displayPatient(pt){
                 var fullname = '';
+                var pt_mrn = '';
                 $(pt.name).each(function(name_idx, ptName){
                     if($.type(ptName) !== 'undefined'){
                         if(ptName.use == 'official'){
@@ -104,6 +105,16 @@
                         }
                     }
                 });
+                
+                $(pt.identifier).each(function(pt_idx, identifier){
+                    if($.type(identifier) !== 'undefined'){
+                        console.log("entering mrn section");
+                        // if(ptName.use == 'official'){
+                        //     fullname = ptName.given.join(" ") + " " + ptName.family.join(" ");
+                        // }
+                    }
+                });
+
                 if(fullname != ''){                    
                 $("#name").text(fullname);
                 }
@@ -111,7 +122,6 @@
                     $("#name").text("anonymous");
                 } 
                 $("#gender").text(pt.gender);
-                $("#mrn").text(pt.identifier);
                 console.log(pt.careProvider);
                 $(pt.careProvider).each(function(cp_idx, cp){
                     if($.type(cp.reference) !== 'undefined'){
