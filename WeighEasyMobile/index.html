@@ -144,11 +144,13 @@
             }    
 
             function setEncounterInfo(enc){  
-                    console.log("entered encounter section");
                 $(enc).each(function(enc_idx, encounter){
                     if(encounter.id = "4367906"){
                         console.log("entering encounter section");
-                    }
+                        $(encounter.identifier).each(function(id_idx, id){
+                            console.log("entering id section");
+                        }
+                    )};
                 });    
                     console.log(enc);          
             }        
