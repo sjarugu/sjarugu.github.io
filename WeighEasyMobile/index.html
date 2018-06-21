@@ -143,9 +143,11 @@
                 }
             }    
 
-            // function getEncounterInfo(enc){
-
-            // }        
+            function setEncounterInfo(enc){                
+                $(enc.entry).each(function(enc_idx, encounter){
+                    console.log("entering encounter section");
+                });
+            }        
 
             // function getBPResult(ob){
             //     //ob.component.forEach(function(bpq, idx) {                    
@@ -158,7 +160,8 @@
                         displayPatient (pt);
                     });
                     smart.patient.api.fetchAll({type: 'Encounter'}).then(function(enc){
-                        console.log("Entering Encounter section");
+                        //console.log("Entering Encounter section");
+                        setEncounterInfo(enc);
                     });
                     smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
                         var byCodes = smart.byCodes(obv, 'code');
