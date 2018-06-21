@@ -157,15 +157,15 @@
                     smart.patient.read().then(function(pt) {
                         displayPatient (pt);
                     });
+                    smart.patient.api.fetchAll({type: 'Encounter'}).then(function(enc){
+                        console.log("Entering Encounter section");
+                    });
                     smart.patient.api.fetchAll({type: 'Observation'}).then(function(obv){
                         var byCodes = smart.byCodes(obv, 'code');
                         var bodyWeight = byCodes('29463-7');
                         $("#curweight").text(getObservationResult(bodyWeight[0]))
                         // var bloodPressure = byCodes('55284-4');;
                         // $("#bp").text(getBPResult(bloodPressure[0]));
-                    });
-                    smart.patient.api.fetchAll({type: 'Encounter'}).then(function(enc){
-                        console.log("Entering Encounter section");
                     });
                 });
         </script>
