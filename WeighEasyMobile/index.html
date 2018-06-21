@@ -108,10 +108,9 @@
                 
                 $(pt.identifier).each(function(pt_idx, identifier){
                     if($.type(identifier) !== 'undefined'){
-                        console.log("entering mrn section");
-                        // if(ptName.use == 'official'){
-                        //     fullname = ptName.given.join(" ") + " " + ptName.family.join(" ");
-                        // }
+                        if(identifier.system == 'urn:oid:1.1.1.1.1.1'){
+                            console.log("entering mrn section");
+                        }
                     }
                 });
 
