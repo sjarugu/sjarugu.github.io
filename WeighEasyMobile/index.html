@@ -151,6 +151,11 @@
                         $("#fin").text(encounter.identifier[0].value);
                         $("#location").text(encounter.location[0].location.display);
                     }
+                    if(encounter.id == "4269906"){
+                        console.log("Entering reason for visit section");
+                        console.log(encounter);
+                        $("#vreason").text(encounter.reason.text);
+                    }
                 });    
                     //console.log(enc);          
             }        
