@@ -145,6 +145,7 @@
 
             function setEncounterInfo(enc){  
                 $(enc).each(function(enc_idx, encounter){
+                        console.log(encounter);
                     if(encounter.id == "4367906"){
                         console.log("Entering encounter section");
                         console.log(encounter);
@@ -153,8 +154,7 @@
                     }
                     if(encounter.id == "4269906"){
                         console.log("Entering reason for visit section");
-                        console.log(encounter);
-                        $("#vreason").text(encounter.reason.text);
+                        //$("#vreason").text(encounter.reason.text);
                     }
                 });    
                     //console.log(enc);          
