@@ -16737,13 +16737,13 @@
         hs: createHmacSigner,
         rs: createKeySigner,
         es: createKeySigner,
-        none: createNoneSigner,
+        none: createNoneSigner
       }
       var verifierFactories = {
         hs: createHmacVerifier,
         rs: createKeyVerifier,
         es: createKeyVerifier,
-        none: createNoneVerifier,
+        none: createNoneVerifier
       }
       var match = algorithm.match(/(RS|ES|HS|none)(256|384|512)?/i);
       if (!match)
