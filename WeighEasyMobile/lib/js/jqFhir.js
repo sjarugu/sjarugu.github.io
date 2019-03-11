@@ -16486,7 +16486,7 @@
       return {
         header: header,
         payload: payload,
-        signature: signatureFromJWS(jwsSig),
+        signature: signatureFromJWS(jwsSig)
       };
     }
     
