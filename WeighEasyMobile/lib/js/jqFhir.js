@@ -16753,7 +16753,7 @@
     
       return {
         sign: signerFactories[algo](bits),
-        verify: verifierFactories[algo](bits),
+        verify: verifierFactories[algo](bits)
       }
     };
     }).call(this,require("buffer").Buffer)
