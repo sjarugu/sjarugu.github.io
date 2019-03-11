@@ -17057,7 +17057,7 @@
         data: {
           grant_type: 'refresh_token',
           refresh_token: refresh_token
-        },
+        }
       }).then(function(authz) {
         authz = $.extend(tokenResponse, authz);
         ret.resolve(authz);
