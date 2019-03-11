@@ -75,7 +75,7 @@
                         dataType: "json",
                         contentType: "application/json",
                         data: args.data || args.params,
-                        withCredentials: args.credentials === 'include',
+                        withCredentials: args.credentials === 'include'
                     };
                     jquery.ajax(opts)
                         .done(function(data, status, xhr) {ret.resolve({data: data, status: status, headers: xhr.getResponseHeader, config: args});})
