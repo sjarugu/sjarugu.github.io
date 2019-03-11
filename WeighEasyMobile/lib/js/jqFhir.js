@@ -75,7 +75,7 @@
                         dataType: "json",
                         contentType: "application/json",
                         data: args.data || args.params,
-                        withCredentials: args.credentials === 'include'
+                        withCredentials: args.credentials === 'include',
                     };
                     jquery.ajax(opts)
                         .done(function(data, status, xhr) {ret.resolve({data: data, status: status, headers: xhr.getResponseHeader, config: args});})
@@ -16486,7 +16486,7 @@
       return {
         header: header,
         payload: payload,
-        signature: signatureFromJWS(jwsSig)
+        signature: signatureFromJWS(jwsSig),
       };
     }
     
@@ -16512,7 +16512,7 @@
       var signature = jwsSign({
         header: this.header,
         payload: this.payload.buffer,
-        secret: this.secret.buffer
+        secret: this.secret.buffer,
       });
       this.emit('done', signature);
       this.emit('data', signature);
@@ -16737,13 +16737,13 @@
         hs: createHmacSigner,
         rs: createKeySigner,
         es: createKeySigner,
-        none: createNoneSigner
+        none: createNoneSigner,
       }
       var verifierFactories = {
         hs: createHmacVerifier,
         rs: createKeyVerifier,
         es: createKeyVerifier,
-        none: createNoneVerifier
+        none: createNoneVerifier,
       }
       var match = algorithm.match(/(RS|ES|HS|none)(256|384|512)?/i);
       if (!match)
@@ -16753,7 +16753,7 @@
     
       return {
         sign: signerFactories[algo](bits),
-        verify: verifierFactories[algo](bits)
+        verify: verifierFactories[algo](bits),
       }
     };
     }).call(this,require("buffer").Buffer)
@@ -17057,7 +17057,7 @@
         data: {
           grant_type: 'refresh_token',
           refresh_token: refresh_token
-        }
+        },
       }).then(function(authz) {
         authz = $.extend(tokenResponse, authz);
         ret.resolve(authz);
