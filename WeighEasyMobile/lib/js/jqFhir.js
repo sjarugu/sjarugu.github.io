@@ -16512,7 +16512,7 @@
       var signature = jwsSign({
         header: this.header,
         payload: this.payload.buffer,
-        secret: this.secret.buffer,
+        secret: this.secret.buffer
       });
       this.emit('done', signature);
       this.emit('data', signature);
