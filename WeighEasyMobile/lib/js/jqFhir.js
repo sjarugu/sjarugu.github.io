@@ -16467,7 +16467,7 @@ function jwsDecode(jwsSig, opts) {
   return {
     header: header,
     payload: payload,
-    signature: signatureFromJWS(jwsSig),
+    signature: signatureFromJWS(jwsSig)
   };
 }
 
@@ -16493,7 +16493,7 @@ SignStream.prototype.sign = function sign() {
   var signature = jwsSign({
     header: this.header,
     payload: this.payload.buffer,
-    secret: this.secret.buffer,
+    secret: this.secret.buffer
   });
   this.emit('done', signature);
   this.emit('data', signature);
@@ -16718,13 +16718,13 @@ module.exports = function jwa(algorithm) {
     hs: createHmacSigner,
     rs: createKeySigner,
     es: createKeySigner,
-    none: createNoneSigner,
+    none: createNoneSigner
   }
   var verifierFactories = {
     hs: createHmacVerifier,
     rs: createKeyVerifier,
     es: createKeyVerifier,
-    none: createNoneVerifier,
+    none: createNoneVerifier
   }
   var match = algorithm.match(/(RS|ES|HS|none)(256|384|512)?/i);
   if (!match)
@@ -16734,7 +16734,7 @@ module.exports = function jwa(algorithm) {
 
   return {
     sign: signerFactories[algo](bits),
-    verify: verifierFactories[algo](bits),
+    verify: verifierFactories[algo](bits)
   }
 };
 }).call(this,require("buffer").Buffer)
