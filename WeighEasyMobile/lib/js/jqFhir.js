@@ -3368,7 +3368,7 @@
       var BE = false
       var LE = true
     
-      var W = new Int32Array(80)
+      var W = new asUInt32Array(80)
     
       var POOL = []
     
