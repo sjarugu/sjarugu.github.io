@@ -5,100 +5,51 @@
     <title>WeighEasy-Mobile-App</title>    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script data-require="jquery@*" data-semver="3.3.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" /> -->
     <!-- FHIR Client JS Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.4.1/es5-shim.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.1/es6-shim.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.5/library.min.js"></script>-->
     <script src='./lib/js/jqFhir.js'></script>
   </head>
-  <body>
-        <ons-page id="pat_demo">
-            <ons-toolbar>
-                <div class="right">
-                    <ons-toolbar-button>
-                        <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
-                    </ons-toolbar-button>
-                </div>
-            </ons-toolbar>
-            <ons-list>
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>Name:</ons-col>
-                        <ons-col id='name'></ons-col>
-                    </ons-row>
-                </ons-list-item>
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>Gender:</ons-col>
-                        <ons-col id='gender'></ons-col>
-                    </ons-row>
-                </ons-list-item>
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>Weight:</ons-col>
-                        <ons-col id='curweight'></ons-col>
-                    </ons-row>
-                </ons-list-item>              
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>MRN</ons-col>
-                        <ons-col id='mrn'></ons-col>
-                    </ons-row>
-                </ons-list-item>              
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>FIN</ons-col>
-                        <ons-col id='fin'></ons-col>
-                    </ons-row>
-                </ons-list-item>              
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>Location</ons-col>
-                        <ons-col id='location'></ons-col>
-                    </ons-row>
-                </ons-list-item>              
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>Visit Reason</ons-col>
-                        <ons-col id='vreason'></ons-col>
-                    </ons-row>
-                </ons-list-item>              
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>DOB</ons-col>
-                        <ons-col id='dob'></ons-col>
-                    </ons-row>
-                </ons-list-item>
-                <ons-list-item>
-                    <ons-row>
-                        <ons-col>Practitioner</ons-col>
-                        <ons-col id='provider'></ons-col>
-                    </ons-row>
-                </ons-list-item>
-            </ons-list>
-            <!-- <ons-row>
-                <ons-col>Name:</ons-col>
-                <ons-col id='name'></ons-col>
-            </ons-row>
-            <ons-row>
-                <ons-col>Gender:</ons-col>
-                <ons-col id='gender'></ons-col>
-            </ons-row>
-            <ons-row>
-                <ons-col>Weight:</ons-col>
-                <ons-col id='curweight'></ons-col>
-            </ons-row> -->
-        </ons-page>
+  <body>        
+      <h2>Patient DEmographics</h2>
+      <table>
+        <tr>
+          <th>Name:</th>
+          <td id='name'></td>
+        </tr>
+        <tr>
+          <th>Gender:</th>
+          <td id='gender'></td>
+        </tr>
+        <tr>
+          <th>Weight:</th>
+          <td id='curweight'></td>
+        </tr>
+        <tr>
+          <th>MRN:</th>
+          <td id='mrn'></td>
+        </tr>
+        <tr>
+          <th>FIN:</th>
+          <td id='fin'></td>
+        </tr>
+        <tr>
+          <th>Location:</th>
+          <td id='location'></td>
+        </tr>
+        <tr>
+          <th>Visit Reason:</th>
+          <td id='vreason'></td>
+        </tr>
+        <tr>
+          <th>DOB:</th>
+          <td id='dob'></td>
+        </tr>
+        <tr>
+          <th>Provider:</th>
+          <td id='provider'></td>
+        </tr>
+      </table>
+    </div>
         <script type="text/javascript">  
-            ons.ready(function() {
-                $("ons-toolbar .center").text("Patient Demographics");
-            });
             function displayPatient(pt){
                 var fullname = '';
                 var pt_mrn = '';
@@ -121,7 +72,7 @@
                 });
 
                 if(fullname != ''){                    
-                $("#name").text(fullname);
+                  $("#name").text(fullname);
                 }
                 else {
                     $("#name").text("anonymous");
