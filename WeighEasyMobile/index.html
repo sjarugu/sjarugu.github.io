@@ -94,6 +94,8 @@
                 $("#gender").text(pt.gender);
                 console.log(pt.careProvider);
                 $(pt.careProvider).each(function(cp_idx, cp){
+                  console.log("Entering Provider section");
+                  console.log(cp.reference)
                     if($.type(cp.reference) !== 'undefined'){
                         $("#provider").text(cp.display);
                     }
